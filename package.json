@@ -2,7 +2,10 @@
   "name": "update-doc",
   "version": "0.0.0",
   "description": "Quickly generate or update your project's README, LICENSE, and so on",
-  "main": "update-doc.js",
+  "main": "index.js",
+  "bin": {
+    "update-doc": "./update-doc-cli.js"
+  },
   "scripts": {
     "docs": "projectz && mos"
   },
@@ -21,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/update-doc/update-doc/issues"
   },
-  "homepage": "https://github.com/update-doc/update-doc#readme"
+  "homepage": "https://github.com/update-doc/update-doc#readme",
+  "dependencies": {
+    "subarg": "^1.0.0"
+  }
 }
