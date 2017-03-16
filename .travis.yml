@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- node
+deploy:
+  provider: npm
+  email: wmhilton@gmail.com
+  on:
+    node: node
+    tags: true
+    branch: master
+    repo: wmhilton/update-doc
+  api_key:
+    secure: jGWMAxSqlwXU995o3Wi2PUixAY+mBSM7hrsmnfZfEiPWZfutWHaGxM78HVgDG2qjcatp4gPoAM5NspekgGgINOgMjs9JDFJBuHVYP5oqeuQ4niAB81sO/ogszvn5p948qPMw/3GkQQX8IyRWolnGxqvoVkcvBywzX9B4R+eUm4Mb/czeMxB01U5vPuTxyR2GNs2L296+EeB33xKQG/ddv4wDdqZQnaBxicbe7df10Uque7HUANDMCBh/FchZnyMXwPflUO0woWbhm67U9kV7fdHy89rmF/SZ5Ne1ClhapIvPW2nVk59PDDwFHR8vUdyNeyJJQfI8cK9NnrNif7tvhx82x3ebph6PydQW6+34pl0xPrAP9NVg+xEvI6zvOPMIrMc4E10zNY2ifuTV43ODUZZnZMIPfK0r/lv11AmpAVEKrsg2nxk7tMIudYndrIHRcC1N+EOx3VBfK8CNpcLvY46wp+cKZF//Vz4LFmZLAAVQpIGbfHkxCCzkPXlZdf8UKf1+/Ck3O8HTUzOslw+Hn8H9EPd5Br10yoUEZhCnLJIpmo8KI39cZEQVtivHJi37ifyljOVrUtvU6BwllgY8bxVanP9OSSNb2+ItqNbb+KaQBHb/hs7SSPxyJJq+Uc0QIxp24T4WPyR0FNYO40BQPO7YfMFs4T6mmbejkJQ6LLU=

@@ -1,0 +1,14 @@
+{
+  "name": "update-doc",
+  "version": "0.0.0",
+  "description": "Quickly generate or update your project's README, LICENSE, and so on",
+  "main": "update-doc.js",
+  "scripts": {
+    "docs": "projectz && mos"
+  },
+  "keywords": [],
+  "author": "William Hilton <wmhilton@gmail.com>",
+  "license": "Unlicense",
+  "maintainers": [],
+  "contributors": []
+}
