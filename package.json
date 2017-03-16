@@ -10,5 +10,16 @@
   "author": "William Hilton <wmhilton@gmail.com>",
   "license": "Unlicense",
   "maintainers": [],
-  "contributors": []
+  "contributors": [],
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/update-doc/update-doc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/update-doc/update-doc/issues"
+  },
+  "homepage": "https://github.com/update-doc/update-doc#readme"
 }
