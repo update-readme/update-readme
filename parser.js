@@ -20,13 +20,14 @@ This is a body.
 
 This is the subsection's body
    */
+  
   let lines = markdown.split('\n')
-  let state = {
-    section: '',
-    headingLevel: 0
-  }
+  // deal with terminating newline
+  if (lines[lines.length - 1] === '') lines.pop()
+  
   let root = new Section()
   let currentSection = root
+  
   for (let line of lines) {
     let level = line.match(/^#*/)[0].length
     if (level === 0) {
@@ -45,26 +46,4 @@ This is the subsection's body
     }
   }
   return root
-}
-
-if (!module.parent) {
-  const util = require('util')
-  console.log(util.inspect(module.exports(`
-(this will throw you off!)
-
-# Title
-subheading
-
-## Installation
-
-do some stuff
-
-## Help
-asdf
-#### deep
-
-## License
-
-MIT
-`), {depth:10}))
 }
