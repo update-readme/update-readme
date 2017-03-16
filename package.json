@@ -7,7 +7,8 @@
     "update-doc": "./update-doc-cli.js"
   },
   "scripts": {
-    "docs": "projectz && mos"
+    "docs": "projectz && mos",
+    "test": "ava"
   },
   "keywords": [],
   "author": "William Hilton <wmhilton@gmail.com>",
@@ -27,5 +28,8 @@
   "homepage": "https://github.com/update-doc/update-doc#readme",
   "dependencies": {
     "subarg": "^1.0.0"
+  },
+  "devDependencies": {
+    "ava": "^0.18.2"
   }
 }
