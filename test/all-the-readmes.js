@@ -13,13 +13,18 @@ registry.on('package', (pkg) => {
   if (pkg.readme) haves++
   if (total % 1000 === 0) console.log(`${haves} / ${total}    ${(100 * haves / total).toFixed(1)}%`)
   if (pkg.readme) {
+    if (typeof pkg.readme !== 'string') {
+      console.log(`readme of type ${typeof pkg.readme} discovered! in ${pkg.name}`)
+      console.log(pkg.readme)
+      return
+    }
     try {
       var readme = pkg.readme
       var readmeParse = parse(readme)
     } catch (e) {
       process.stdout.write(`\nParse failure for '${pkg.name}'\n`)
       console.log(e)
-      process.stderr.write(pkg.readme)
+      console.log(pkg.readme)
       return
     }
     try {
@@ -27,7 +32,7 @@ registry.on('package', (pkg) => {
     } catch (e) {
       process.stdout.write(`\nRender failure for '${pkg.name}'\n`)
       console.log(e)
-      process.stderr.write(pkg.readme)
+      console.log(pkg.readme)
       return
     }
     if (readmeRender !== readme) {
