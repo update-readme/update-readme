@@ -1,12 +1,15 @@
 'use strict'
-module.exports = function render (section) {
-  let text = ''
+function renderLines (section) {
+  let lines = []
   if (section.level > 0) {
-    text += `${'#'.repeat(section.level)} ${section.title}\n`
+    lines.push(`${'#'.repeat(section.level)}${section.title}`)
   }
-  text += section.body
+  lines.push(...section.body)
   for (let subsection of section.subsections) {
-    text += render(subsection)
+    lines.push(...renderLines(subsection))
   }
-  return text
+  return lines
+}
+module.exports = function render (section) {
+  return renderLines(section).join('\n')
 }

@@ -4,26 +4,6 @@ const util = require('util')
 const parse = require('../parser')
 const render = require('../render')
 
-const README = `
-(this will throw you off!)
-
-# Title
-
-subheading
-
-## Installation
-
-do some stuff
-
-## Help
-asdf
-#### deep
-
-## License
-
-MIT
-`
-
 test('parse/render form identity transform', t => {
   for (var i = 1; i < 6; i++) {
     let text = fs.readFileSync(__dirname + '/fixtures/lorem' + i + '.md', 'utf8')

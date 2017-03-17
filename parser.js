@@ -5,7 +5,7 @@ function Section () {
     level: 0,
     title: '',
     section: '',
-    body: '',
+    body: [],
     subsections: []
   }
 }
@@ -22,23 +22,26 @@ This is the subsection's body
    */
   
   let lines = markdown.split('\n')
-  // deal with terminating newline
-  if (lines[lines.length - 1] === '') lines.pop()
-  
   let root = new Section()
   let currentSection = root
   
   for (let line of lines) {
     let level = line.match(/^#*/)[0].length
     if (level === 0) {
-      currentSection.body += line + '\n'
+      currentSection.body.push(line)
     } else {
       while (level <= currentSection.level && currentSection.parent) {
         currentSection = currentSection.parent
       }
       let newSection = new Section()
       newSection.parent = currentSection
-      newSection.title = line.match(/^#+ ?(.*)$/)[1]
+      try {
+        newSection.title = line.slice(level)
+      } catch (e) {
+        console.log('level =', level)
+        console.log(line)
+        throw e
+      }
       newSection.section = newSection.title.trim().toLowerCase()
       newSection.level = level
       currentSection.subsections.push(newSection)
