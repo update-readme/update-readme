@@ -1,7 +1,7 @@
 'use strict'
 const chalk = require('chalk')
 const jsdiff = require('diff')
-const registry = require('package-stream')()
+const registry = require('all-the-packages')
 const parse = require('../parser')
 const render = require('../render')
 
