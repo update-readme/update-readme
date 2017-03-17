@@ -18,7 +18,25 @@ Quickly generate or update your project's README, LICENSE, and so on
 
 <!-- /DESCRIPTION -->
 
-## Usage
+## To test it out
+
+```
+git clone https://github.com/update-doc/update-doc-license
+cd update-doc-license
+npm install
+npm link
+cd ..
+git clone https://github.com/update-doc/update-doc
+cd update-doc
+npm install
+npm link update-doc-license
+npm run watchify &
+node update-doc-cli.js -p license README.md
+```
+
+Try changing the value of 'license' in the package.json file and rerunning it.
+
+## Usage concept
 
 It uses a browserify-like syntax for plugins. Something like...
 
@@ -42,7 +60,7 @@ We need an API. Preferably an incredibly simple one, like a single function call
 var updatedMarkdown = plugin(originalMarkdown, pluginOptions, globalOptions) // return a Promise that resolves to Markdown string.
 ```
 
-Only problem is how do we know which plugins are used with which sections. Off the top of my head, we add a registration property.
+Only problem is how do we know which plugins are used with which sections? Off the top of my head, we add a registration property.
 
 ```
 // somewhere in the plugin's code
@@ -52,7 +70,7 @@ module.exports = function (input, options, globalOptions) {
 module.exports.section = 'installation'
 ```
 
-Is that flexible enough or is that too restrictive?
+Is that flexible enough or is that too restrictive? We could do a config file or something...
 
 ## License
 
