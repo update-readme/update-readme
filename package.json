@@ -2,13 +2,19 @@
   "name": "update-doc",
   "version": "0.0.0",
   "description": "Quickly generate or update your project's README, LICENSE, and so on",
-  "main": "index.js",
+  "main": "index.min.js",
   "bin": {
     "update-doc": "./update-doc-cli.js"
   },
   "scripts": {
     "docs": "projectz && mos",
-    "test": "node test/all-the-readmes.js"
+    "test": "node test/all-the-readmes.js",
+    "watchify": "watchify -vd --node -e index.js -s updateDoc -o index.min.js"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
   },
   "keywords": [],
   "author": "William Hilton <wmhilton@gmail.com>",
@@ -27,12 +33,22 @@
   },
   "homepage": "https://github.com/update-doc/update-doc#readme",
   "dependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-runtime": "^6.23.0",
+    "mz": "^2.6.0",
+    "spdx-license-list": "^3.0.1",
     "subarg": "^1.0.0"
   },
   "devDependencies": {
     "ava": "^0.18.2",
+    "babel-core": "^6.24.0",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-stage-2": "^6.22.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.1.0",
     "chalk": "^1.1.3",
     "diff": "^3.2.0",
-    "package-stream": "^3.0.0"
+    "package-stream": "^3.0.0",
+    "watchify": "^3.9.0"
   }
 }
