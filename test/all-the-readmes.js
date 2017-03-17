@@ -1,13 +1,18 @@
 'use strict'
 const chalk = require('chalk')
 const jsdiff = require('diff')
-const registry = require('all-the-packages')
+const registry = require('package-stream')()
 const parse = require('../parser')
 const render = require('../render')
 
+let haves = 0
+let total = 0
+
 registry.on('package', (pkg) => {
+  total++
+  if (pkg.readme) haves++
+  if (total % 1000 === 0) console.log(`${haves} / ${total}    ${(100 * haves / total).toFixed(1)}%`)
   if (pkg.readme) {
-    process.stdout.write('.')
     try {
       var readme = pkg.readme
       var readmeParse = parse(readme)
