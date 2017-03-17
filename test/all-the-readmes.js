@@ -18,7 +18,7 @@ registry.on('package', (pkg) => {
       var readmeParse = parse(readme)
     } catch (e) {
       process.stdout.write(`\nParse failure for '${pkg.name}'\n`)
-      process.stderr.write(e)
+      console.log(e)
       process.stderr.write(pkg.readme)
       return
     }
@@ -26,7 +26,7 @@ registry.on('package', (pkg) => {
       var readmeRender = render(readmeParse)
     } catch (e) {
       process.stdout.write(`\nRender failure for '${pkg.name}'\n`)
-      process.stderr.write(e)
+      console.log(e)
       process.stderr.write(pkg.readme)
       return
     }
