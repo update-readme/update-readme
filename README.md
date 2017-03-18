@@ -1,5 +1,5 @@
-# update-doc
-Quickly generate or update your project's README, LICENSE, and so on
+# update-readme
+Quickly generate or update your project's README.md
 
 
 <!-- BADGES/ -->

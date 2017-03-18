@@ -24,12 +24,12 @@ let plugins = []
 for (let p of pluginOptions) {
   if (typeof p === 'string') {
     plugins.push({
-      module: 'update-doc-' + p,
+      module: 'update-readme-' + p,
       options: {}
     })
   } else {
     plugins.push({
-      module: 'update-doc-' + p._[0],
+      module: 'update-readme-' + p._[0],
       options: p
     })
   }
