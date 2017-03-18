@@ -1,14 +1,5 @@
 'use strict'
-function Section () {
-  return {
-    parent: null,
-    level: 0,
-    title: '',
-    section: '',
-    body: [],
-    subsections: []
-  }
-}
+const Section = require('./Section')
 
 module.exports = function (markdown) {
   /*
@@ -42,7 +33,6 @@ This is the subsection's body
         console.log(line)
         throw e
       }
-      newSection.section = newSection.title.trim().toLowerCase()
       newSection.level = level
       currentSection.subsections.push(newSection)
       currentSection = newSection

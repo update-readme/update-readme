@@ -3,7 +3,6 @@ const assert = require('assert')
 const fs = require('mz/fs')
 const parser = require('./parser')
 const render = require('./render')
-const treeWalker = require('./tree-walker')
 
 module.exports = function updateDocFactory (config = {}) {
   let { plugins = [], ...globalOptions} = config
@@ -26,13 +25,13 @@ module.exports = function updateDocFactory (config = {}) {
     let waitFor = []
     for (let plugin of plugins) {
       let p = require(plugin.module)
-      let section = treeWalker.find({tree, section: p.section, level: p.level})
-      if (section) {
+      try {
+        let section = p.title ? tree.find({title: p.title}) : tree
         // Plugins modify the tree directly, but can return a promise.
         let prom = p(section, plugin.options, globalOptions)
         if (prom) waitFor.push(prom)
-      } else {
-        console.warn(`No ${p.section} section found.`)
+      } catch (e) {
+        console.warn(e.message)
       }
     }
     await Promise.all(waitFor)
