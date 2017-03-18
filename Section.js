@@ -24,10 +24,6 @@ module.exports = class Section {
       let result = subsection.find({title})
       if (result) return result
     }
-    // Last but not least... throw an error. Because it is better to throw
-    // the error now and than to wait until it manifests as
-    // an Uncaught TypeError: Cannot read property 'title' of null
-    // or something
-    throw new Error(`Expected a section titled '${title}' but did not find one!`)
+    return false
   }
 }

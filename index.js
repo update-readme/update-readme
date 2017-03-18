@@ -25,14 +25,11 @@ module.exports = function updateDocFactory (config = {}) {
     let waitFor = []
     for (let plugin of plugins) {
       let p = require(plugin.module)
-      try {
-        let section = p.title ? tree.find({title: p.title}) : tree
-        // Plugins modify the tree directly, but can return a promise.
-        let prom = p(section, plugin.options, globalOptions)
-        if (prom) waitFor.push(prom)
-      } catch (e) {
-        console.warn(e.message)
-      }
+      let section = p.title ? tree.find({title: p.title}) : tree
+      if (!section) console.warn(`Expected a section titled '${title}' but did not find one!`)
+      // Plugins modify the tree directly, but can return a promise.
+      let prom = p(section, plugin.options, globalOptions)
+      if (prom) waitFor.push(prom)
     }
     await Promise.all(waitFor)
     filebody = render(tree)
