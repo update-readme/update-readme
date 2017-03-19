@@ -110,14 +110,13 @@ so on. Right now the level information isn't used for anything.
 
 Here's an example of how `update-doc` would parse this Markdown:
 
-```markdown
     # my-module
     This is the best module ever.
 
     ## Installation
 
     Pay careful attention...
-```
+
 
 is represented by a section looking like this:
 
