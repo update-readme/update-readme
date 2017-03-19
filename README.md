@@ -29,6 +29,10 @@ Try changing the value of 'license' in the package.json file and rerunning it.
 
 ## Installation
 
+```
+npm install update-readme --save
+```
+
 ## Usage concept
 
 It uses a browserify-like syntax for plugins. Something like...
