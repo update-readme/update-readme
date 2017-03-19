@@ -27,6 +27,8 @@ node update-doc-cli.js -p license README.md
 
 Try changing the value of 'license' in the package.json file and rerunning it.
 
+## Installation
+
 ## Usage concept
 
 It uses a browserify-like syntax for plugins. Something like...
@@ -109,12 +111,12 @@ so on. Right now the level information isn't used for anything.
 Here's an example of how `update-doc` would parse this Markdown:
 
 ```markdown
-# my-module
-This is the best module ever.
+    # my-module
+    This is the best module ever.
 
-## Installation
+    ## Installation
 
-Pay careful attention...
+    Pay careful attention...
 ```
 
 is represented by a section looking like this:
