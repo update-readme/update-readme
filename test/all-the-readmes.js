@@ -10,9 +10,9 @@ let total = 0
 
 registry.on('package', (pkg) => {
   total++
-  if (pkg.readme) haves++
+  if (pkg.readme && pkg.readme !== 'ERROR: No README data found!') haves++
   if (total % 1000 === 0) console.log(`${haves} / ${total}    ${(100 * haves / total).toFixed(1)}%`)
-  if (pkg.readme) {
+  if (pkg.readme && pkg.readme !== 'ERROR: No README data found!') {
     if (typeof pkg.readme !== 'string') {
       console.log(`readme of type ${typeof pkg.readme} discovered! in ${pkg.name}`)
       console.log(pkg.readme)

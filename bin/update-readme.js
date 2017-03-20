@@ -3,7 +3,7 @@
 const fs = require('fs')
 const assert = require('assert')
 const subarg = require('subarg')
-const updateDoc = require('./index.min.js')
+const updateDoc = require('../lib/index')
 
 const argv = subarg(process.argv.slice(2), {
   alias: {

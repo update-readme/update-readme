@@ -2,14 +2,18 @@
   "name": "update-readme",
   "version": "0.0.0",
   "description": "Quickly generate or update your project's README.md",
-  "main": "index.min.js",
+  "main": "dist/lib/index.js",
   "bin": {
-    "update-readme": "./update-readme-cli.js"
+    "update-readme": "dist/bin/update-readme-cli.js"
   },
   "scripts": {
     "docs": "projectz && mos",
     "test": "node test/all-the-readmes.js",
-    "watchify": "watchify -vd --node -e index.js -s updateDoc -o index.min.js"
+    "dev": "npm-run-all --parallel watchify:*",
+    "watchify:bin": "watchify -vd --node -e bin/update-readme.js -o dist/bin/update-readme.js",
+    "watchify:lib": "watchify -vd --node -e lib/index.js -s updateReadme -o dist/lib/index.js",
+    "build:bin": "browserify -vd --node -e bin/update-readme.js -o dist/bin/update-readme.js",
+    "build:lib": "browserify -vd --node -e lib/index.js -s updateReadme -o dist/lib/index.js"
   },
   "browserify": {
     "transform": [
@@ -48,6 +52,7 @@
     "browserify": "^14.1.0",
     "chalk": "^1.1.3",
     "diff": "^3.2.0",
+    "npm-run-all": "^4.0.2",
     "package-stream": "^3.0.0",
     "watchify": "^3.9.0"
   }
