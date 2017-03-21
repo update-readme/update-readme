@@ -31,7 +31,7 @@ For instance, whereas the CLI prepends `'update-readme-'` to the plugin names,
 `'module'` can be any valid string to pass to `require()` including local files
 that are project specific.
 
-```
+```js
 require('update-readme')({
   readme: 'README.md',
   plugins: [
@@ -63,7 +63,7 @@ section into the README.
 
 Plugins should export a single function call with the following type signature:
 
-```
+```js
 /**
  * An update-readme plugin
  * @param  {string[]} sections      - the sections of the README file
@@ -79,7 +79,7 @@ Plugins should export a single function call with the following type signature:
 
 This is an example of a plugin that just updates the copyright year in the License section.
 
-```
+```js
 export default function CopyrightYear (sections, { year }) {
   year = year || (new Date()).getFullYear()
   for (let n in sections) {
