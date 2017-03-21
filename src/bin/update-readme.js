@@ -19,8 +19,7 @@
     let pluginOptions = argv.plugin
     if (!pluginOptions) {
       pluginOptions = []
-    }
-    else if (typeof pluginOptions === 'string') {
+    } else if (typeof pluginOptions === 'string') {
       pluginOptions = [pluginOptions]
     }
     let plugins = []

@@ -1,10 +1,5 @@
 'use strict'
-const chalk = require('chalk')
-const jsdiff = require('diff')
 const registry = require('package-stream')()
-const parse = require('../parser')
-const render = require('../render')
-
 let haves = 0
 let total = 0
 

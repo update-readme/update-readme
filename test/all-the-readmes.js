@@ -38,8 +38,8 @@ registry.on('package', (pkg) => {
     if (readmeRender !== readme) {
       process.stdout.write(`\nNon-identity transform for package '${pkg.name}'\n`)
       var diff = jsdiff.diffLines(readme, readmeRender)
- 
-      diff.forEach(function(part){
+
+      diff.forEach(function (part) {
         // green for additions, red for deletions
         // grey for common parts
         if (part.added) {
@@ -50,7 +50,6 @@ registry.on('package', (pkg) => {
           process.stdout.write(chalk.gray(part.value))
         }
       })
-      return
     }
   }
 })
