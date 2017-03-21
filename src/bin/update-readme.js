@@ -4,7 +4,7 @@
   try {
     const fs = require('mz/fs')
     const subarg = require('subarg')
-    const updateReadme = require('../lib/index')
+    const updateReadme = require('..')
 
     const argv = subarg(process.argv.slice(2), {
       alias: {

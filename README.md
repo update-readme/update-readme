@@ -160,5 +160,5 @@ JavaScript API, since plugin names have to be fully spelled out there.
 
 ## License
 
-Copyright 2017 William Hilton <wmhilton@gmail.com>.
+Copyright 2017 William Hilton.
 Licensed under [The Unlicense](http://unlicense.org/).
