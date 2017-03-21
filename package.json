@@ -10,7 +10,8 @@
     "test": "node test/all-the-readmes.js",
     "watch": "babel src --out-dir dist --watch",
     "build": "babel src --out-dir dist",
-    "lint": "standard --fix"
+    "lint": "standard --fix",
+    "precommit": "lint-staged"
   },
   "keywords": [],
   "author": "William Hilton <wmhilton@gmail.com>",
@@ -40,6 +41,8 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "chalk": "^1.1.3",
     "diff": "^3.2.0",
+    "husky": "^0.13.2",
+    "lint-staged": "^3.4.0",
     "npm-run-all": "^4.0.2",
     "package-stream": "^3.0.0",
     "standard": "^9.0.2"
