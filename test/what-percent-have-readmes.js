@@ -77,7 +77,7 @@ registry.on('end', () => {
 
 setInterval(function () {
   // Percent complete of test
-  gauge.setPercent((total / 400000).toFixed(0))
+  gauge.setPercent(total / 400000)
   bar.setData({
     titles: ['total', 'haves'],
     data: [total, haves]
